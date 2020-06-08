@@ -1,0 +1,15 @@
+{
+  "name": "qin_todo",
+  "version": "0.1.1",
+  "bin":{
+    "do":"cli.js"
+  },
+  "main":"index.js",
+  "files":["*.js"],
+  "author": "bakenray",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^5.1.0",
+    "inquirer": "^7.1.0"
+  }
+}
