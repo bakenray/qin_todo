@@ -54,7 +54,6 @@ function askForCreateTask(list){
             title:answers.title,
             done:false
         })
-        console.log('list',list)
         db.write(list)
     })
 }

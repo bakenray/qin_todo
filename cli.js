@@ -10,7 +10,7 @@ if(process.argv.length === 2){ //说明用户直接运行 node cli.js 没有传�
 
 program
   .version(pkg.version)
-  .option('-x, --xxx','this is xxx')
+  .option('add, --xxx','添加一个todo')
 
 program
   .command('add')
