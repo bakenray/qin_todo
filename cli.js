@@ -1,4 +1,4 @@
-#! /usr/bin/env node
+#! \"C:\Program Files\nodejs\" node
 
 const program = require('commander');
 const api =  require('./index.js');
