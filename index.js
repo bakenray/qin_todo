@@ -13,29 +13,28 @@ function updateTitle(list,index){
     inquirer.prompt({
         type:'input',
         name:'title',
-        message:'请输入新标题',
+        message:'请输入新标题：',
         default:list[index].title
     }).then((answers)=>{
         list[index].title = answers.title
         db.write(list)
     })
 }
-function remove(list,index){
+function removeTask(list,index){
     list.splice(index,1)
     db.write(list)
 }
 function askForAction(list,index){
-    const actions = {markAsDone,markAsUndone,updateTitle,remove}
-
+    const actions = {markAsDone,markAsUndone,updateTitle,removeTask}
     inquirer.prompt({
         type:'list',
         name:'action',
-        message:'请选择操作',
+        message:'请选择操作：',
         choices:[
             {name:'已完成',value:'markAsDone'},
             {name:'未完成',value:'markAsUndone'},
             {name:'改标题',value:'updateTitle'},
-            {name:'删除',value:'remove'},
+            {name:'删除',value:'removeTask'},
             {name:'退出',value:'quit'}
         ]
     })
@@ -48,7 +47,7 @@ function askForCreateTask(list){
     inquirer.prompt({
         type:'input',
         name:'title',
-        message:'输入todo标题'
+        message:'输入todo标题：'
     }).then((answers)=>{
         list.push({
             title:answers.title,
@@ -60,7 +59,7 @@ function askForCreateTask(list){
 function printTasks(list){
     let showList = list.map((task,index)=>{
         return {
-            name:`${task.done?'[o]':'[x]'} ${index + 1} - ${task.title}`,
+            name:`${task.done ? '[√]' : '[ ]'} ${index + 1} - ${task.title}`,
             value:index.toString()
         }
     })
@@ -72,15 +71,15 @@ function printTasks(list){
     ]
     inquirer
       .prompt({
-            type:'list',
-            name:'index',
-            message:'请选择想操作的任务',
-            choices:allList
+            type: 'list',
+            name: 'index',
+            message: '请选择想操作的任务',
+            choices: allList
       })
       .then(answers => {
           const index = Number(answers.index)
-          if(index>= 0){
-              askForAction(list,index)
+          if(index >= 0){
+              askForAction(list, index)
           }
           else if(index === -1){
             askForCreateTask(list)
@@ -103,5 +102,3 @@ module.exports.showAll = async () => {
     const list = await db.read()
     printTasks(list)
 }
-
-

@@ -1,8 +1,8 @@
 {
   "name": "qin_todo",
-  "version": "0.2.1",
+  "version": "0.3.1",
   "bin":{
-    "t":"cli.js"
+    "todo":"cli.js"
   },
   "main":"index.js",
   "files":["*.js"],

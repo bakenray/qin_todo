@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 
-const program = require('commander');
-const api =  require('./index.js');
+const program = require('commander')
+const api =  require('./index.js')
 const pkg = require('./package.json')
-if(process.argv.length === 2){ //说明用户直接运行 node cli.js 没有传参数
+
+//说明用户直接运行 node cli.js 没有传参数
+if(process.argv.length === 2) { 
    void api.showAll()
    return 
 }
@@ -32,6 +34,4 @@ program
     )
   })
 
-program.parse(process.argv);
-
-
+program.parse(process.argv)
