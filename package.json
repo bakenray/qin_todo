@@ -1,15 +1,23 @@
 {
   "name": "qin_todo",
   "version": "0.3.1",
-  "bin":{
-    "todo":"cli.js"
+  "bin": {
+    "todo": "cli.js"
   },
-  "main":"index.js",
-  "files":["*.js"],
+  "main": "index.js",
+  "files": [
+    "*.js"
+  ],
   "author": "bakenray",
   "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
   "dependencies": {
     "commander": "^5.1.0",
     "inquirer": "^7.1.0"
+  },
+  "devDependencies": {
+    "jest": "^29.2.2"
   }
 }
